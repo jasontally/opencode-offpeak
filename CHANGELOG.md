@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+### Compatibility
+
+- **OpenCode `>=2.0.26 <2.3.0`**, validated against **2.2.5**. OpenCode 2.2
+  leaves the plugin hooks, RPC, and TUI surfaces this plugin uses unchanged;
+  the previous guard rejected 2.2 hosts before any plugin code ran.
+
 ## 0.2.0 - 2026-10-23
 
 ### Added

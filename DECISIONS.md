@@ -132,3 +132,15 @@ generic, side-effect-free interface on the existing OpenCode plugin RPC channel,
 with no new service, queue, timer, or state. The method returns exactly the
 canonical answer, including `nextTransition`, so the consumer can cache until the
 boundary rather than poll.
+
+## OpenCode 2.2 compatibility
+
+OpenCode 2.2.5 was rejected by the `>=2.0.26 <2.2.0` guard before any plugin code
+ran. The 2.0.26 and 2.2.5 `@opencode/plugin` declarations show that the surfaces
+this package uses are unchanged: `model.request`, the HTTP and experimental
+WebSocket hooks, `retry`, the session lifecycle events, storage, RPC, and the TUI
+context. The range is therefore extended to `>=2.0.26 <2.3.0` only after the
+packed plugin loads in the real 2.2.5 TUI and the full deterministic suite passes
+against the 2.2.5 package. The `@opencode/plugin` dependency stays pinned at
+2.0.26 as the minimum supported version; it provides only the identity
+`Plugin.define` helper, while the host owns the runtime contract.
